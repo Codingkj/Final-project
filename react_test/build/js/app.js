@@ -1,52 +1,22 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Paragraph = require('./components/Paragraph.jsx');
-var PpButton = require('./components/Buttons.jsx');
-var PpText = require('./components/TextInput.jsx');
-var PpTextArea = require('./components/TextArea.jsx');
-var Header = require('./components/Header.jsx');
-var ProfileImage = require('./components/ProfileImage.jsx');
-var Panel = require('./components/Panel.jsx');
-var Map = require('./components/Map.jsx');
+var ApplicationStart = require('./components/ApplicationStart.jsx');
 
-
-var PpHeader = React.createClass({displayName: "PpHeader",
+var StartApplication = React.createClass({displayName: "StartApplication",
   render: function(){
     return (React.createElement("div", null, 
-      React.createElement("h4", null, "Rejuvenation Health Club "), 
-      React.createElement(Paragraph, null), 
-      React.createElement(PpButton, null), 
+      React.createElement(ApplicationStart, null)
+      )
+      );
+    }
+  });
 
-      React.createElement(Header, null), 
-      React.createElement(ProfileImage, null), 
-      React.createElement(PpTextArea, null), 
-
-      React.createElement(Panel, null), 
-      React.createElement(Header, null), 
-      React.createElement(PpText, null), 
-      React.createElement(PpText, null), 
-      React.createElement(PpText, null), 
-      React.createElement(PpTextArea, null), 
-      React.createElement(PpButton, null), 
-
-      React.createElement(Header, null), 
-      React.createElement(Panel, null), 
-      React.createElement(Map, null), 
-      React.createElement(PpText, null)
-      ));
-  }
-})
+var StartPage = React.createElement(StartApplication);
+ReactDOM.render(StartPage, document.querySelector('[data-react-application]'));
 
 
-var PpHeader1 = React.createElement(PpHeader);
-ReactDOM.render(PpHeader1, document.querySelector('[data-react-application]'));
-// ReactDOM.render(PpTextAreaName, document.querySelector('[data-react-button]'));
-// ReactDOM.render(PpLine1, document.querySelector('[data-react-button]'));
-// ReactDOM.render(PpHeader1, document.querySelector('[data-react-button]'));
-
-
-},{"./components/Buttons.jsx":160,"./components/Header.jsx":161,"./components/Map.jsx":162,"./components/Panel.jsx":163,"./components/Paragraph.jsx":164,"./components/ProfileImage.jsx":165,"./components/TextArea.jsx":166,"./components/TextInput.jsx":167,"react":159,"react-dom":3}],2:[function(require,module,exports){
+},{"./components/ApplicationStart.jsx":160,"react":159,"react-dom":3}],2:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -19033,11 +19003,60 @@ module.exports = require('./lib/React');
 
 },{"./lib/React":27}],160:[function(require,module,exports){
 var React = require('react');
+var ReactDOM = require('react-dom');
+
+var Paragraph = require('./Paragraph.jsx');
+var PpButton = require('./Buttons.jsx');
+var PpText = require('./TextInput.jsx');
+var PpTextArea = require('./TextArea.jsx');
+var Header = require('./Header.jsx');
+var ProfileImage = require('./ProfileImage.jsx');
+var Panel = require('./Panel.jsx');
+var Map = require('./Map.jsx');
+
+
+var ApplicationStart = React.createClass({displayName: "ApplicationStart",
+  render: function(){
+    return (React.createElement("div", null, 
+      React.createElement("h1", null, "Rejuvenation Health Club "), 
+      React.createElement(Paragraph, {value: "Welcome to Rejuvenation. We specialise in MASSAGE, ACUPUNCTURE and Reiki practices."}), 
+      React.createElement(PpButton, {type: "button", value: "Book an Appointment"}), 
+
+      React.createElement(Header, {defaultValue: "Our Practitioners"}), 
+      React.createElement(ProfileImage, {src: "#"}), 
+      React.createElement(Paragraph, {className: "profile-text", value: "Angelo is a well-qualified and experienced massage therapist. He can offer Reiki, Sports Massages or a nice relaxing massage."}), 
+      
+      React.createElement(ProfileImage, {src: "#"}), 
+      React.createElement(Paragraph, {className: "profile-text", value: "Dr Micheals has worked at Rejuvenation now for 7 year and has a wealth of experience in the Acupuncture field. He works Monday to Thursday at the clinic."}), 
+      React.createElement(Panel, null), 
+      React.createElement(Header, {defaultValue: "Contact Form"}), 
+      React.createElement(PpText, {placeholder: "<Enter your first name>"}), 
+      React.createElement(PpText, {placeholder: "<Enter your last name>"}), 
+      React.createElement(PpText, {placeholder: "<your email address>"}), 
+      React.createElement(PpText, {placeholder: "<your phone number>"}), 
+      React.createElement(PpTextArea, {placeholder: "<Your Question?>"}), 
+      React.createElement(PpButton, {value: "Send"}), 
+
+      React.createElement(Header, {defaultValue: "Our location"}), 
+      React.createElement(Panel, null), 
+      React.createElement(Map, {src: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d39742.75011544772!2d-0.093348!3d51.496301!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876030d54f96c6d%3A0xcdb3274daab69673!2sLondon+SE1%2C+UK!5e0!3m2!1sen!2suk!4v1450884255041", frameborder: "0", allowfullscreen: true}), 
+      React.createElement(Paragraph, {className: "location-text", value: "Street Address: 1122 Goodie Avenue, London, SE1 4U2"}), 
+      React.createElement(Paragraph, {className: "location-text", value: "Office Phone: 555-2434"}), 
+      React.createElement(Paragraph, {className: "location-text", value: "Email address: service@practice.com"})
+      ));
+  }
+});
+
+module.exports = ApplicationStart;
+
+
+},{"./Buttons.jsx":161,"./Header.jsx":162,"./Map.jsx":163,"./Panel.jsx":164,"./Paragraph.jsx":165,"./ProfileImage.jsx":166,"./TextArea.jsx":167,"./TextInput.jsx":168,"react":159,"react-dom":3}],161:[function(require,module,exports){
+var React = require('react');
 
 var MyButtonComponent = React.createClass({displayName: "MyButtonComponent",
 	render: function (){
 		return (React.createElement("div", null, 
-			React.createElement("button", {className: "button-style"}, " Press Here ")
+			React.createElement("button", {type: this.props.type, className: "button-style"}, this.props.value)
       )
       );
 	}
@@ -19046,31 +19065,52 @@ var MyButtonComponent = React.createClass({displayName: "MyButtonComponent",
 module.exports = MyButtonComponent;
 
 
-},{"react":159}],161:[function(require,module,exports){
+},{"react":159}],162:[function(require,module,exports){
 var React = require('react');
 
 var HeaderComponent = React.createClass({displayName: "HeaderComponent",
   render: function() {
      return (React.createElement("div", null, 
-      React.createElement("input", {type: "text", placeholder: "Enter text here"})
+      React.createElement("h2", null, this.props.defaultValue)
       ));
   }
 });
 
 module.exports = HeaderComponent;
 
-},{"react":159}],162:[function(require,module,exports){
+},{"react":159}],163:[function(require,module,exports){
 var React = require('react');
+
+var latitude = 51.4962994;
+var longitude = -0.1108573;
+
+// var mapOptions={ 
+//             center:new google.maps.LatLng(latitude,longitude),
+//             zoom:12   };
+    
+// var mapCreated = new google.maps.Map(document.getElementById(mapContainer),mapOptions);
+//       google.maps.event.trigger(document.getElementById(mapContainer), 'resize');
+
+
+// var marker = new google.maps.Marker({
+//                             position:{lat:latitude,lng:longitude},
+//                             map: map,
+//                             title: 'We are here!',
+//                           });
+// <script src="http://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true">
+//    </script>
 
 var Map = React.createClass({displayName: "Map",
   render: function() {
-     return (React.createElement("div", {className: "map"}));
+     return (React.createElement("div", {id: "mapContainer", className: "map"}, 
+     	React.createElement("iframe", {src: this.props.src})
+     	));
   }
 });
 
 module.exports = Map;
 
-},{"react":159}],163:[function(require,module,exports){
+},{"react":159}],164:[function(require,module,exports){
 var React = require('react');
 
 var Panel = React.createClass({displayName: "Panel",
@@ -19081,14 +19121,14 @@ var Panel = React.createClass({displayName: "Panel",
 
 module.exports = Panel;
 
-},{"react":159}],164:[function(require,module,exports){
+},{"react":159}],165:[function(require,module,exports){
 var React = require('react');
 
 var MyParaComponent = React.createClass({displayName: "MyParaComponent",
   render: function () {
     return (
       React.createElement("div", null, 
-        React.createElement("p", null, "There is nothing to see here.")
+        React.createElement("p", null, this.props.value)
       )
     );
   }
@@ -19096,43 +19136,43 @@ var MyParaComponent = React.createClass({displayName: "MyParaComponent",
 
 module.exports = MyParaComponent;
 
-},{"react":159}],165:[function(require,module,exports){
+},{"react":159}],166:[function(require,module,exports){
 var React = require('react');
 
 var ProfileImage = React.createClass({displayName: "ProfileImage",
   render: function() {
-     return (React.createElement("div", null, 
-      React.createElement("img", {src: "Enter text here"})
+     return (React.createElement("div", {className: "profile"}, 
+      React.createElement("img", {src: this.props.src})
       ));
   }
 });
 
 module.exports = ProfileImage;
 
-},{"react":159}],166:[function(require,module,exports){
+},{"react":159}],167:[function(require,module,exports){
 var React = require('react');
 
 var TextAreaComponent = React.createClass({displayName: "TextAreaComponent",
   render: function() {
      return (React.createElement("div", null, 
-      React.createElement("textarea", {placeholder: "Enter text here"})
+      React.createElement("textarea", {placeholder: this.props.placeholder})
       ));
   }
 });
 
 module.exports = TextAreaComponent;
 
-},{"react":159}],167:[function(require,module,exports){
+},{"react":159}],168:[function(require,module,exports){
 var React = require('react');
 
-var TextLineComponent = React.createClass({displayName: "TextLineComponent",
+var TextInputComponent = React.createClass({displayName: "TextInputComponent",
   render: function() {
      return (React.createElement("div", null, 
-      React.createElement("input", {type: "text", placeholder: "Enter text here"})
+      React.createElement("input", {type: "text", placeholder: this.props.placeholder})
       ));
   }
 });
 
-module.exports = TextLineComponent;
+module.exports = TextInputComponent;
 
 },{"react":159}]},{},[1]);

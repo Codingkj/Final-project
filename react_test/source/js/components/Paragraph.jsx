@@ -4,7 +4,7 @@ var MyParaComponent = React.createClass({
   render: function () {
     return (
       <div>
-        <p>There is nothing to see here.</p>
+        <p>{this.props.value}</p>
       </div>
     );
   }

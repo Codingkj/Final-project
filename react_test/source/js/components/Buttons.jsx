@@ -3,7 +3,7 @@ var React = require('react');
 var MyButtonComponent = React.createClass({
 	render: function (){
 		return (<div>
-			<button className = "button-style"> Press Here </button>
+			<button type={this.props.type} className="button-style">{this.props.value}</button>
       </div>
       );
 	}

@@ -1,11 +1,11 @@
 var React = require('react');
 
-var TextLineComponent = React.createClass({
+var TextInputComponent = React.createClass({
   render: function() {
      return (<div>
-      <input type="text" placeholder="Enter text here" />
+      <input type="text" placeholder={this.props.placeholder} />
       </div>);
   }
 });
 
-module.exports = TextLineComponent;
+module.exports = TextInputComponent;

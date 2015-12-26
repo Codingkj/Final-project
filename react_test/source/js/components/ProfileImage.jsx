@@ -2,8 +2,8 @@ var React = require('react');
 
 var ProfileImage = React.createClass({
   render: function() {
-     return (<div>
-      <img src="Enter text here" />
+     return (<div className="profile">
+      <img src={this.props.src} />
       </div>);
   }
 });
